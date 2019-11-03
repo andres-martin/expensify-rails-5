@@ -8,6 +8,7 @@
 #  date       :date
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  type_id    :integer
 #
 
 require 'rails_helper'
@@ -29,7 +30,9 @@ RSpec.describe Expense, type: :model do
   it 'has a date' do
     expect(expense.date.to_s).to eq('2019-11-03')
   end
-  
+ 
+  it { should belong_to(:type) }
+  it { should validate_presence_of(:type_id) }
   it { should validate_presence_of(:concept) }
   it { should validate_presence_of(:amount) }
   it { should validate_presence_of(:date) }
