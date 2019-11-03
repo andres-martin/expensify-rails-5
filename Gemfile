@@ -7,6 +7,7 @@ gem 'rails', '>= 5.0.0.beta3', '< 5.1'
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma'
+
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '~> 5.0'
@@ -19,6 +20,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'dotenv-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'annotate'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5.x'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -35,6 +37,14 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'sqlite3'
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'factory_bot_rails'
+  gem 'shoulda-matchers'  
+  gem 'faker'
+  gem 'database_cleaner'
 end
 
 group :development do
