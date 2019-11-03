@@ -11,4 +11,4 @@ script:
  - bundle exec rspec
 before_script:
  - cp config/database.yml.travis config/database.yml
- - psql -C 'create database expensify_test;' -U postgres
+ - psql -c 'create database expensify_test;' -U postgres
