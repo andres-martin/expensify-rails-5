@@ -2,13 +2,14 @@
 #
 # Table name: expenses
 #
-#  id         :integer          not null, primary key
-#  concept    :string
-#  amount     :integer
-#  date       :date
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  type_id    :integer
+#  id          :integer          not null, primary key
+#  concept     :string
+#  amount      :integer
+#  date        :date
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  type_id     :integer
+#  category_id :integer
 #
 
 require 'rails_helper'
@@ -32,7 +33,9 @@ RSpec.describe Expense, type: :model do
   end
  
   it { should belong_to(:type) }
+  it { should belong_to(:category) }
   it { should validate_presence_of(:type_id) }
+  it { should validate_presence_of(:category_id) }
   it { should validate_presence_of(:concept) }
   it { should validate_presence_of(:amount) }
   it { should validate_presence_of(:date) }
