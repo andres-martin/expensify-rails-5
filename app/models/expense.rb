@@ -12,4 +12,7 @@
 
 class Expense < ApplicationRecord
     validates :concept, presence: true
+    validates :amount, presence: true, numericality: { only_integer: true }
+    validates :date, presence: true
+    # validates_format_of :date, :with => /\d{2}\-\d{2}\-\d{4}/, message: "Date should have the following format dd-mm-yyyy"
 end
