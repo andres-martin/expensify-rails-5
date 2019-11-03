@@ -9,3 +9,6 @@ script:
  - RAILS_ENV=test bundle exec rake db:migrate
  - bundle exec rake db:test:prepare
  - bundle exec rspec
+before_script:
+ - cp config/database.yml.travis config/database.yml
+ - psql -C 'create database expensify_test;' -U postgres
