@@ -11,4 +11,5 @@
 #
 
 class Expense < ApplicationRecord
+    validates :concept, presence: true
 end
