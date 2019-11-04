@@ -1,0 +1,6 @@
+<% if @expense.errors.empty? %>
+    $('.alert-success').html('Expense created').show();
+    $('#product-modal').modal('hide');
+<% else %>
+    alert("<%= @expense.errors.full_messages %>");
+<% end %>
