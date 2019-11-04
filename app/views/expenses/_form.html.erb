@@ -6,20 +6,39 @@
         <h4 class="modal-title">Expense</h4>
       </div>
 
+      <%= form_for @expense, remote: true do |f| %>
+
       <div class="modal-body">
-        <%= form_for @expense, remote: true do |f| %>
-          <div class="form-row">
+          <div class="row">
+
             <div class="form-group col-xs-6">
+              <label for="inputType">Type</label>
+              <%= f.select :type_id, options_from_collection_for_select(Type.all, :id, :name), {}, class: 'form-control' %>
+            </div>
+
+            <div class="form-group col-xs-6">
+              <label for="inputDate">Date</label>
+              <%= f.text_field :date, value: Time.now.strftime('%Y-%m-%d'), class: "form-control text-right" %>
+            </div>
+
+            <div class="form-group col-md-12">
+              <label for="inputConcept">Concept</label>
               <%= f.text_field :concept, class: "form-control", placeholder: "Nombre del producto" %>
             </div>
+
             <div class="form-group col-xs-6">
+              <label for="inputCategory">Category</label>
+              <% categories_array = Category.all.pluck(:name, :id) %>
+              <%= f.select :category_id, options_for_select(categories_array), {}, class: "form-control"  %>
+            </div>
+
+            <div class="form-group col-xs-6">
+              <label for="inputAmount">Amount</label>
               <%= f.text_field :amount, class: "form-control", placeholder: "Precio del producto" %>
             </div>
           </div>
-          <div class="form-group">
-            <%= f.text_field :date, value: Time.now.strftime('%Y-%m-%d'), class: "form-control input-lg" %>
-          </div>
-       </div>
+
+      </div>
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
