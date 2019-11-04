@@ -16,7 +16,7 @@ require 'rails_helper'
 
 RSpec.describe Expense, type: :model do
   # pending "add some examples to (or delete) #{__FILE__}"
-  let(:expense) { Expense.new(concept: 'get my glasses fixed', amount: 30, date: '03-11-2019') }
+  let(:expense) { Expense.new(concept: 'get my glasses fixed', amount: 30, date: '2019-11-03') }
 
   it 'has a concept' do
     expect(expense.concept).to eq('get my glasses fixed')
