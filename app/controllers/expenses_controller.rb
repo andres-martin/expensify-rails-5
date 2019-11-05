@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+##
+# This class represents a Expense model
 class ExpensesController < ApplicationController
   def index
     @tab = :expenses
@@ -15,6 +19,7 @@ class ExpensesController < ApplicationController
   private
 
   def expense_params
-    params.require(:expense).permit(:concept, :amount, :date, :type_id, :category_id)
+    params.require(:expense).permit(:concept, :amount,
+                                    :date, :type_id, :category_id)
   end
 end
