@@ -40,6 +40,8 @@ RSpec.describe Expense, type: :model do
   it { should validate_presence_of(:amount) }
   it { should validate_presence_of(:date) }
   it { should validate_numericality_of(:amount) }
+
+  it { should_not allow_value(11.2019).for(:amount) }
   it { should allow_value("03-11-2019").for(:date) }
   it { should_not allow_value("AA/11/2019").for(:date) }
 

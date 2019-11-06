@@ -1,4 +1,5 @@
 <% if @expense.errors.empty? %>
+    $('table tbody').append('<%= j render 'row', expense: @expense %>')
     $('.alert-success').html('Expense created').show();
     $('#product-modal').modal('hide');
 <% else %>
