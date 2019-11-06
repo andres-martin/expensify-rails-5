@@ -1,7 +1,14 @@
 <% if @expense.errors.empty? %>
+
+$('#submitButton').click( function(e){
+    e.preventDefault();
+
     $('table tbody').append('<%= j render 'row', expense: @expense %>')
+    $("#product-modal").modal('toggle');
     $('.alert-success').html('Expense created').show();
-    $('#product-modal').modal('hide');
+
+});
+
 <% else %>
     alert("<%= @expense.errors.full_messages %>");
 <% end %>
