@@ -5,7 +5,7 @@
 class ExpensesController < ApplicationController
   def index
     @tab = :expenses
-    @expenses = Expense.all
+    @expenses = Expense.all.order('date DESC')
   end
 
   def new
