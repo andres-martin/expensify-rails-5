@@ -1,10 +1,9 @@
 <% if @expense.errors.empty? %>
-
     $("#product-modal").on("ajax:success", () => {
         $('table tbody').append('<%= j render 'row', expense: @expense %>');
-        $("#product-modal").fadeOut("normal", () => $(this).remove() );
+        $("#product-modal").remove();
         $('.modal-backdrop').remove();
-        $('body').removeClass('modal-open');
+        $('body').removeClass('modal-open')
     });
 
 <% else %>
