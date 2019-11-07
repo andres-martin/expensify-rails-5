@@ -1,13 +1,11 @@
 <% if @expense.errors.empty? %>
 
-$('#submitButton').click( function(e){
-    e.preventDefault();
-
-    $('table tbody').append('<%= j render 'row', expense: @expense %>')
-    $("#product-modal").modal('toggle');
-    $('.alert-success').html('Expense created').show();
-
-});
+    $("#product-modal").on("ajax:success", () => {
+        $('table tbody').append('<%= j render 'row', expense: @expense %>');
+        $("#product-modal").fadeOut("normal", () => $(this).remove() );
+        $('.modal-backdrop').remove();
+        $('body').removeClass('modal-open');
+    });
 
 <% else %>
     alert("<%= @expense.errors.full_messages %>");
