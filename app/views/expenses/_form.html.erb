@@ -21,9 +21,10 @@
               <%= f.text_field :date, value: Time.now.strftime('%Y-%m-%d'), class: "form-control text-right" %>
             </div>
 
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-12" id="concept" >
               <label for="inputConcept">Concept</label>
               <%= f.text_field :concept, class: "form-control", placeholder: "Nombre del producto" %>
+              <p class='text-danger' style='display: none;'>error_msg</p>
             </div>
 
             <div class="form-group col-xs-6">

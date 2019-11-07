@@ -1,3 +1,5 @@
+$error-color: #ff7474;
+
 .filter-header {
   color: #808487;
 
@@ -14,7 +16,9 @@
   padding: 7px 15px;
 }
 
-a.list-group-item { color: #808487; }
+a.list-group-item {
+  color: #808487;
+}
 
 .summary-box {
   padding: 10px;
@@ -23,7 +27,9 @@ a.list-group-item { color: #808487; }
     font-size: 24px;
   }
 
-  .summary-label { color: #666; }
+  .summary-label {
+    color: #666;
+  }
 }
 
 #expenses-table {
@@ -35,19 +41,29 @@ a.list-group-item { color: #808487; }
       font-size: 21px;
       line-height: 1.1em;
     }
-    .month { font-size: 13px; }
+
+    .month {
+      font-size: 13px;
+    }
   }
-  .excluded { margin-left: 5px; }
+
+  .excluded {
+    margin-left: 5px;
+  }
+
   .concept {
     color: #ccd1d4;
     font-size: 14px;
   }
+
   .category {
     width: 150px;
   }
+
   .amount {
     font-size: 16px;
   }
+
   .actions {
     a {
       visibility: hidden;
@@ -57,5 +73,11 @@ a.list-group-item { color: #808487; }
     }
   }
 
-  tr:hover .actions a { visibility: visible; }
+  tr:hover .actions a {
+    visibility: visible;
+  }
+}
+
+.error {
+  border-color: $error-color;
 }

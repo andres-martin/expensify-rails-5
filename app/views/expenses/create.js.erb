@@ -7,5 +7,17 @@
     });
 
 <% else %>
-    alert("<%= @expense.errors.full_messages %>");
+
+    $('#concept label').addClass('text-danger');
+    $('#concept input').addClass('error');
+    
+    const value_label = $('#concept label').text();
+    let error_value;
+    <% @expense.errors.full_messages.each do |item| %>
+     if ( value_label.includes("<%= item.split(' ')[0] %>") ){
+        $('#concept p').text(`${value_label}`).show();
+     }
+
+    <% end %>
+    <% @expense.errors.full_messages[1].html_safe %>
 <% end %>
