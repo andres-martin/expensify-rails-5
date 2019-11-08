@@ -33,9 +33,10 @@
               <%= f.select :category_id, options_for_select(categories_array), {}, class: "form-control"  %>
             </div>
 
-            <div class="form-group col-xs-6">
+            <div class="form-group col-xs-6" id="amount">
               <label for="inputAmount">Amount</label>
               <%= f.text_field :amount, class: "form-control", placeholder: "Precio del producto" %>
+              <p class='text-danger' style='display: none;'>error_msg</p>
             </div>
           </div>
 

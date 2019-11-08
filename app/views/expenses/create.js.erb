@@ -10,14 +10,23 @@
 
     $('#concept label').addClass('text-danger');
     $('#concept input').addClass('error');
-    
-    const value_label = $('#concept label').text();
-    let error_value;
-    <% @expense.errors.full_messages.each do |item| %>
-     if ( value_label.includes("<%= item.split(' ')[0] %>") ){
-        $('#concept p').text(`${value_label}`).show();
-     }
-
+    const arrErrors = []; 
+    <% @expense.errors.full_messages.each do |error| %>
+     arrErrors.push("<%= error.html_safe %>");
     <% end %>
-    <% @expense.errors.full_messages[1].html_safe %>
+
+    let errors = {};
+    arrErrors.map((error) => {
+        let errorArr = error.split(' ');
+        let key = errorArr[0];
+        let errorMsg = errorArr.slice(1).join(" ");
+        errors[key] = errorMsg;
+        console.log(Object.values(errors));
+        console.log(errors);
+        $(`#${error.split(' ', 1)[0].toLowerCase()} p`).text(`${errors[key]}`).show();
+    });
+
+
 <% end %>
+
+        $("").text().show();
