@@ -38,7 +38,9 @@ RSpec.describe Expense, type: :model do
   it { should validate_presence_of(:category_id) }
   it { should validate_presence_of(:concept) }
   it { should validate_presence_of(:amount) }
-  it { should validate_presence_of(:date) }
+  
+  # it { should validate_format_of(:date) }
+  
   it { should validate_numericality_of(:amount) }
 
   it { should_not allow_value(11.2019).for(:amount) }
