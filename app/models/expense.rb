@@ -15,7 +15,9 @@
 class Expense < ApplicationRecord
     belongs_to :type
     belongs_to :category
-    validates_presence_of :concept, :date, :type_id, :category_id
+    validates_presence_of :concept, :type_id, :category_id
     validates :amount, presence: true, numericality: { only_integer: true }
-    # validates_format_of :date, :with => /\d{2}\-\d{2}\-\d{4}/, message: "Date should have the following format dd-mm-yyyy"
+    validates :date, format: { with: /\d{4}-\d{2}-\d{2}/,
+        message: "should have the following format yyyy-mm-dd" }
+    # validates :date, presence: true
 end
