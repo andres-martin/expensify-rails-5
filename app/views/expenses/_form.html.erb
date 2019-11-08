@@ -16,9 +16,10 @@
               <%= f.select :type_id, options_from_collection_for_select(Type.all, :id, :name), {}, class: 'form-control' %>
             </div>
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-6" id="date" >
               <label for="inputDate">Date</label>
               <%= f.text_field :date, value: Time.now.strftime('%Y-%m-%d'), class: "form-control text-right" %>
+              <p class='text-danger' style='display: none;'>error_msg</p>
             </div>
 
             <div class="form-group col-md-12" id="concept" >
