@@ -1,0 +1,8 @@
+ $("#product-modal").on("ajax:success", () => {
+        $("#expense_<%= @expense.id %>").replaceWith('<%= j render 'row', expense: @expense %>')
+        $("#product-modal").remove();
+        $('.modal-backdrop').remove();
+        $('body').removeClass('modal-open')
+});
+
+

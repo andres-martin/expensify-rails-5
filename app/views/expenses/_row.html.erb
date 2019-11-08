@@ -1,4 +1,4 @@
-<tr>
+<tr id="expense_<%= expense.id %>">
     <td class="date">
         <div class="day"><%= expense.date.to_formatted_s(:short).split(' ')[0] %></div>
         <div class="month"><%= expense.date.to_formatted_s(:short).split(' ')[1] %></div>
@@ -19,8 +19,13 @@
         <div class="amount">$<%= expense.amount %></div>
 
         <div class="actions">
-        <a href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a>
-        <a href="#"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+        <%= link_to edit_expense_path(expense), remote: true do  %>
+            <span class="glyphicon glyphicon-edit"></span> Edit
+        <% end %>
+        <%= link_to expense, remote: true, :method => :delete, 
+            data: { confirm: "Are you sure to delete #{expense.concept} expense?" } do %>
+            <span class="glyphicon glyphicon-trash"></span> Delete
+        <% end %>
         </div>
     </td>
 </tr>

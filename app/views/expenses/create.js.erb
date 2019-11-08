@@ -18,6 +18,7 @@
     <% @expense.errors.full_messages.each do |error| %>
      arrErrors.push("<%= error.html_safe %>");
     <% end %>
+
     console.log(arrErrors);
 
     arrErrors.forEach((error) => {
