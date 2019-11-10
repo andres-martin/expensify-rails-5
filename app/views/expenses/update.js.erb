@@ -1,8 +1,20 @@
- $("#product-modal").on("ajax:success", () => {
+<% if @expense.errors.empty? %>
+
+$("#product-modal").on("ajax:success", () => {
         $("#expense_<%= @expense.id %>").replaceWith('<%= j render 'row', expense: @expense %>')
         $("#product-modal").remove();
         $('.modal-backdrop').remove();
         $('body').removeClass('modal-open')
 });
+
+<% else %>
+    const arrErrors = []; 
+    <% @expense.errors.full_messages.each do |error| %>
+     arrErrors.push("<%= error.html_safe %>");
+    <% end %>
+    addErrors(arrErrors);
+<% end %>
+
+
 
 
