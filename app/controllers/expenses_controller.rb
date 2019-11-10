@@ -16,12 +16,16 @@ class ExpensesController < ApplicationController
 
   def create
     @expense = Expense.create(expense_params)
+    if @expense.save
+      flash[:notice] = "The #{@expense.type.name} #{@expense.concept} for #{@expense.amount} on #{@expense.date.to_formatted_s(:short)} created"
+    end
   end
 
   def edit; end
 
   def update
     @expense.update(expense_params)
+    flash.now[:notice] = "The expense was updated successfully!"
   end
 
   def destroy

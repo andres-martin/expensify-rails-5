@@ -18,3 +18,11 @@ const addErrors = (arrayErrors) => {
         $(`#${key} p`).text(`${objErrors[key]}`).show();
     });
 };
+
+// dismiss alerts
+
+function dismissAlert() {
+    $('.alert button').on('click', () => {
+        $('.alert').css('display', 'none');
+    });
+}

@@ -1,9 +1,16 @@
 <% if @expense.errors.empty? %>
     $("#product-modal").on("ajax:success", () => {
         $('table tbody').append('<%= j render 'row', expense: @expense %>');
+
+       $('.alert-success .msg').text("<%= j flash[:notice] %>"); 
+       $('.alert-success').show(); 
+ 
+
         $("#product-modal").remove();
         $('.modal-backdrop').remove();
         $('body').removeClass('modal-open')
+
+        $('body').removeAttr('style');
     });
 <% else %>
     const arrErrors = []; 

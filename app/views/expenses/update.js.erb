@@ -1,10 +1,15 @@
 <% if @expense.errors.empty? %>
-
 $("#product-modal").on("ajax:success", () => {
         $("#expense_<%= @expense.id %>").replaceWith('<%= j render 'row', expense: @expense %>')
+
+        $('.alert-success .msg').text("<%= j flash[:notice] %>"); 
+        $('.alert-success').show(); 
+
         $("#product-modal").remove();
         $('.modal-backdrop').remove();
-        $('body').removeClass('modal-open')
+        $('body').removeClass('modal-open');
+
+        $('body').removeAttr('style');
 });
 
 <% else %>
