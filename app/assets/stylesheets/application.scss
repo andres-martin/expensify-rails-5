@@ -16,4 +16,8 @@
   right: 20px;
   max-width: 500px;
   z-index: 1000;
+
+  >span p {
+    display: inline;
+  }
 }

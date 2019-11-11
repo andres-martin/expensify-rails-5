@@ -17,9 +17,9 @@ class ExpensesController < ApplicationController
   def create
     @expense = Expense.create(expense_params)
     if @expense.save
-      message = "The #{@expense.type.name.downcase} <b>#{@expense.concept}</b> for
-          <b>#{@expense.amount}</b> on <b>#{@expense.date.to_formatted_s(:short)}</b> was created successfully!"
-      flash[:notice] = message.html_safe
+      message = "<p>The #{@expense.type.name.downcase} <b>#{@expense.concept}</b> for
+          <b>#{@expense.amount}</b> on <b>#{@expense.date.to_formatted_s(:short)}</b> was created successfully!</p>"
+      flash.now[:notice] = message.html_safe
     end
   end
 
@@ -27,11 +27,16 @@ class ExpensesController < ApplicationController
 
   def update
     @expense.update(expense_params)
-    flash.now[:notice] = "The expense was updated successfully!"
+    message = "The expense was updated successfully!"
+    flash.now[:notice] = message.html_safe
   end
 
   def destroy
-    @expense.destroy
+    if @expense.destroy
+      message = "The #{@expense.type.name.downcase} <b>#{@expense.concept}</b> for
+          <b>#{@expense.amount}</b> on <b>#{@expense.date.to_formatted_s(:short)}</b> was destroyed successfully!"
+    #  flash[:notice] = message.html_safe
+    end
   end
 
   private

@@ -1,1 +1,2 @@
 $("#expense_<%= @expense.id %>").fadeOut();
+$('.alert-success .msg p').replaceWith('<%= j flash[:notice] %>'); 
