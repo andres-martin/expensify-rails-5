@@ -1,8 +1,8 @@
 <% if @expense.errors.empty? %>
     $("#product-modal").on("ajax:success", () => {
-        $('table tbody').append('<%= j render 'row', expense: @expense %>');
+       $('table tbody').append('<%= j render 'row', expense: @expense %>');
 
-       $('.alert-success .msg').text("<%= j flash[:notice] %>"); 
+       $('.alert-success .msg p').replaceWith('<%= j flash[:notice] %>'); 
        $('.alert-success').show(); 
  
 

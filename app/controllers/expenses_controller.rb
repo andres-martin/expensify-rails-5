@@ -17,7 +17,9 @@ class ExpensesController < ApplicationController
   def create
     @expense = Expense.create(expense_params)
     if @expense.save
-      flash[:notice] = "The #{@expense.type.name} #{@expense.concept} for #{@expense.amount} on #{@expense.date.to_formatted_s(:short)} created"
+      message = "The #{@expense.type.name.downcase} <b>#{@expense.concept}</b> for
+          <b>#{@expense.amount}</b> on <b>#{@expense.date.to_formatted_s(:short)}</b> was created successfully!"
+      flash[:notice] = message.html_safe
     end
   end
 
