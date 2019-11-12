@@ -5,6 +5,8 @@
        $('.alert-success .msg p').replaceWith('<%= j flash[:notice] %>'); 
        $('.alert-success').show(); 
        dismissModal();
+       const exCount = <%= @expenses.count %>;
+       updateSummaryBox(exCount);
     });
 <% else %>
     const arrErrors = []; 

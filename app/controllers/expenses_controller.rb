@@ -4,10 +4,11 @@
 # This class represents a Expense model
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:edit, :update, :destroy]
+  before_action :set_expenses, only: [:index, :create, :destroy]
 
   def index
     @tab = :expenses
-    @expenses = Expense.all.order('date DESC')
+    @expenses.order('date DESC')
   end
 
   def new
@@ -43,6 +44,10 @@ class ExpensesController < ApplicationController
 
   def set_expense
     @expense = Expense.find(params[:id])
+  end
+
+  def set_expenses
+    @expenses = Expense.all
   end
 
   def expense_params

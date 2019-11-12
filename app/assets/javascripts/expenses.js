@@ -34,3 +34,8 @@ const dismissModal = () => {
     $('body').removeClass('modal-open');
     $('body').removeAttr('style');
 };
+
+// Handling summary box
+const updateSummaryBox = (exCount) => {
+    $('#expenses-count .summary-value').text(exCount);
+};

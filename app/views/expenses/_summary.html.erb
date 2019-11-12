@@ -1,0 +1,17 @@
+<div class="row" style="margin-top: 10px;">
+    <div class="summary-box col-md-4 text-center">
+        <div class="summary-value">$2,500,000</div>
+        <div class="summary-value"><%= @expenses.pluck(:amount).sum %></div>
+        <div class="summary-label">Total</div>
+    </diV>
+    <div id="expenses-count" class="summary-box col-md-4 text-center">
+        <div class="summary-value"><%= @expenses.count %></div>
+        <div class="summary-label">Transactions</div>
+    </div>
+    <div class="summary-box col-md-4 text-center">
+        <div class="summary-value">$1,000,000</div>
+        <div class="summary-value"><%= @expenses.pluck(:amount).sum / @expenses.count %></div>
+        <div class="summary-label">Average</div>
+    </div>
+</div>
+
