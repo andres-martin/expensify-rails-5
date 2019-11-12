@@ -35,7 +35,7 @@ class ExpensesController < ApplicationController
     if @expense.destroy
       message = "The #{@expense.type.name.downcase} <b>#{@expense.concept}</b> for
           <b>#{@expense.amount}</b> on <b>#{@expense.date.to_formatted_s(:short)}</b> was destroyed successfully!"
-    #  flash[:notice] = message.html_safe
+      flash.now[:notice] = message.html_safe
     end
   end
 

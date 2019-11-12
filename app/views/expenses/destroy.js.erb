@@ -1,2 +1,5 @@
-$("#expense_<%= @expense.id %>").fadeOut();
-$('.alert-success .msg p').replaceWith('<%= j flash[:notice] %>'); 
+$("a[data-remote]").on("ajax:success", () => {
+    $("#expense_<%= @expense.id %>").fadeOut();
+    $('.alert-success .msg p').replaceWith('<%= j flash[:notice] %>'); 
+    $('.alert-success').show(); 
+});
