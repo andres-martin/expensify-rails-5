@@ -4,13 +4,7 @@
       
        $('.alert-success .msg p').replaceWith('<%= j flash[:notice] %>'); 
        $('.alert-success').show(); 
- 
-
-        $("#product-modal").remove();
-        $('.modal-backdrop').remove();
-        $('body').removeClass('modal-open')
-
-        $('body').removeAttr('style');
+       dismissModal();
     });
 <% else %>
     const arrErrors = []; 

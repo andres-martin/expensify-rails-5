@@ -26,3 +26,11 @@ function dismissAlert() {
         $('.alert').css('display', 'none');
     });
 }
+// dismiss Modal
+
+const dismissModal = () => {
+    $("#product-modal").remove();
+    $('.modal-backdrop').remove();
+    $('body').removeClass('modal-open');
+    $('body').removeAttr('style');
+};

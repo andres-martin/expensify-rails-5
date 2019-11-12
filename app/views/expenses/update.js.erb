@@ -5,13 +5,8 @@ $("#product-modal").on("ajax:success", () => {
         $('.alert-success .msg p').text('<%= j flash[:notice] %>'); 
         $('.alert-success').show(); 
 
-        $("#product-modal").remove();
-        $('.modal-backdrop').remove();
-        $('body').removeClass('modal-open');
-
-        $('body').removeAttr('style');
+        dismissModal();
 });
-
 <% else %>
     const arrErrors = []; 
     <% @expense.errors.full_messages.each do |error| %>
