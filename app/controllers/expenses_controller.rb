@@ -8,7 +8,6 @@ class ExpensesController < ApplicationController
 
   def index
     @tab = :expenses
-    @expenses.order('date DESC')
   end
 
   def new
@@ -47,7 +46,7 @@ class ExpensesController < ApplicationController
   end
 
   def set_expenses
-    @expenses = Expense.all
+    @expenses = Expense.all.order('date DESC')
   end
 
   def expense_params
