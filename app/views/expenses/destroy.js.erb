@@ -2,4 +2,9 @@ $("a[data-remote]").on("ajax:success", () => {
     $("#expense_<%= @expense.id %>").fadeOut();
     $('.alert-success .msg p').replaceWith('<%= j flash[:notice] %>'); 
     $('.alert-success').show(); 
+    
+    const exSum = <%= @expenses.pluck(:amount).sum %>;
+    const exCount = <%= @expenses.count %>;
+    const exAvg = <%= @expenses.pluck(:amount).sum / @expenses.count %>;
+    updateSummaryBox(exSum, exCount, exAvg);
 });

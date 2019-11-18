@@ -5,8 +5,11 @@
        $('.alert-success .msg p').replaceWith('<%= j flash[:notice] %>'); 
        $('.alert-success').show(); 
        dismissModal();
+
+       const exSum = <%= @expenses.pluck(:amount).sum %>;
        const exCount = <%= @expenses.count %>;
-       updateSummaryBox(exCount);
+       const exAvg = <%= @expenses.pluck(:amount).sum / @expenses.count %>;
+       updateSummaryBox(exSum, exCount, exAvg);
     });
 <% else %>
     const arrErrors = []; 

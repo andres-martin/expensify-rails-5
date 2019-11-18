@@ -36,6 +36,8 @@ const dismissModal = () => {
 };
 
 // Handling summary box
-const updateSummaryBox = (exCount) => {
+const updateSummaryBox = (exSum, exCount, exAvg) => {
+    $('#expenses-sum .summary-value').text(exSum);
     $('#expenses-count .summary-value').text(exCount);
+    $('#expenses-avg .summary-value').text(exAvg);
 };

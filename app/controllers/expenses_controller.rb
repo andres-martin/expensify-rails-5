@@ -47,6 +47,9 @@ class ExpensesController < ApplicationController
 
   def set_expenses
     @expenses = Expense.all.order('date DESC')
+
+    @expenses_sum = @expenses.pluck(:amount).sum
+    @expenses_avg = @expenses.pluck(:amount).sum / @expenses.count
   end
 
   def expense_params
